@@ -1,0 +1,140 @@
+# Development Configuration Example
+# Copy this file to dev_config.py and customize for your local setup
+# dev_config.py is gitignored and won't be committed to the repository
+
+import os
+from pathlib import Path
+
+# ===================================
+# PERSONAL FILE REFERENCES
+# ===================================
+
+# Your personal Obsidian vault path (used for report generation)
+OBSIDIAN_VAULT_PATH = "/Users/yourusername/Documents/YourVault"
+
+# Reference files that influence development but aren't in the repo
+REFERENCE_FILES = {
+    # Technical SEO checklist for feature development
+    "technical_seo_checklist": "Copy of Technical SEO Audit Checklist (techseo.pro) - Tech SEO Pro - Audit Checklist.csv",
+    
+    # Client audit examples for testing report formats
+    "sample_audit": "Kimball-Midwest SEO Audit.md",
+    
+    # Additional reference materials
+    "seo_workflows": "screamingfrog_workflows.md",
+    "advanced_features": "ADVANCED_SEO_FEATURES.md",
+    "obsidian_readme": "OBSIDIAN_SEO_README.md",
+    "smart_audit_readme": "README_SMART_AUDIT.md",
+    "comparison_doc": "COMPARISON_LOCAL_vs_CLOUD.md",
+    "client_setup": "CLIENT_AUDIT_SETUP.md",
+}
+
+# ===================================
+# DEVELOPMENT SETTINGS
+# ===================================
+
+# Default settings for development
+DEV_SETTINGS = {
+    "max_pages_default": 20,  # Smaller limit for faster testing
+    "enable_debug_logging": True,
+    "save_intermediate_data": True,
+    "use_sample_data": False,  # Set to True to use mock data instead of real crawling
+    "multithreading_enabled": True,  # Enable for development (disabled in free tier)
+    "max_concurrent_requests": 5,  # Moderate concurrency for testing
+}
+
+# ===================================
+# FEATURE FLAGS
+# ===================================
+
+# Control which features are enabled during development
+FEATURE_FLAGS = {
+    # Core features (always available)
+    "basic_seo_analysis": True,
+    "title_meta_analysis": True,
+    "heading_structure": True,
+    
+    # Performance features (Pro tier)
+    "multithreaded_crawling": True,  # Enable for development
+    "unlimited_pages": True,  # Enable for development
+    "advanced_reporting": True,
+    
+    # Advanced features (Pro tier)
+    "advanced_content_analysis": True,
+    "competitive_analysis": True,
+    "schema_validation": True,
+    "performance_monitoring": True,
+    "obsidian_integration": True,
+}
+
+# ===================================
+# HELPER FUNCTIONS
+# ===================================
+
+def get_reference_file_path(file_key):
+    """Get the full path to a reference file if it exists locally"""
+    if file_key in REFERENCE_FILES:
+        file_path = Path(REFERENCE_FILES[file_key])
+        if file_path.exists():
+            return str(file_path)
+        else:
+            print(f"⚠️  Reference file not found: {file_path}")
+            return None
+    return None
+
+def load_technical_seo_checklist():
+    """Load the technical SEO checklist for feature development"""
+    checklist_path = get_reference_file_path("technical_seo_checklist")
+    if checklist_path:
+        # Parse CSV and return structured data
+        import pandas as pd
+        try:
+            df = pd.read_csv(checklist_path)
+            return df.to_dict('records')
+        except Exception as e:
+            print(f"⚠️  Could not load checklist: {e}")
+    return []
+
+def get_sample_audit_structure():
+    """Analyze sample audit structure for report formatting"""
+    audit_path = get_reference_file_path("sample_audit")
+    if audit_path:
+        with open(audit_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            # Extract section headers and structure
+            sections = []
+            for line in content.split('\n'):
+                if line.startswith('#'):
+                    sections.append(line.strip())
+            return sections
+    return []
+
+# ===================================
+# CONFIGURATION VALIDATION
+# ===================================
+
+def validate_dev_config():
+    """Validate that the development configuration is properly set up"""
+    issues = []
+    
+    # Check Obsidian vault path
+    if not Path(OBSIDIAN_VAULT_PATH).exists():
+        issues.append(f"Obsidian vault path does not exist: {OBSIDIAN_VAULT_PATH}")
+    
+    # Check reference files
+    for key, file_path in REFERENCE_FILES.items():
+        if not Path(file_path).exists():
+            issues.append(f"Reference file missing: {file_path} (key: {key})")
+    
+    if issues:
+        print("⚠️  Development configuration issues:")
+        for issue in issues:
+            print(f"   • {issue}")
+        print("\n💡 These files help with development but are not required for basic functionality.")
+    else:
+        print("✅ Development configuration validated successfully!")
+    
+    return len(issues) == 0
+
+if __name__ == "__main__":
+    validate_dev_config() 

@@ -1,0 +1,189 @@
+# QuickFixSEO - Git Ignore Rules
+
+# ===================================
+# PERSONAL & CLIENT FILES
+# ===================================
+# These files help with development but shouldn't be in the public repo
+
+# Client audit files and reports
+*SEO Audit.md
+*seo-audit*.md
+*audit-report*.md
+Kimball-Midwest*
+*client-audit*
+*Client-Audit*
+
+# Technical SEO reference materials
+*Technical SEO*.csv
+*Tech SEO*.csv
+*SEO Checklist*.csv
+*techseo.pro*
+*Copy of Technical SEO Audit Checklist*
+
+# Personal configuration and vault paths
+obsidian_vault_path.txt
+vault_config.json
+personal_config.py
+.vault_path
+dev_config.py
+
+# Generated reports (keep local for testing)
+reports/
+audits/
+SEO Audits/
+*-audit-*.md
+*-seo-report-*.md
+
+# ===================================
+# DEVELOPMENT FILES
+# ===================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ===================================
+# SENSITIVE DATA
+# ===================================
+
+# API keys and credentials
+.env
+.env.local
+.env.production
+.env.staging
+config/secrets.py
+secrets.json
+credentials.json
+api_keys.py
+
+# License keys and validation
+license_keys/
+*.license
+.auto_seo_license
+*.key
+pro_features.py
+enterprise_config.py
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+log.txt
+
+# ===================================
+# TEMPORARY FILES
+# ===================================
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ===================================
+# DOCUMENTATION DRAFTS
+# ===================================
+
+# Draft documentation (keep published docs)
+docs/drafts/
+docs/internal/
+NOTES.md
+TODO.md
+ROADMAP_INTERNAL.md
+
+# ===================================
+# TESTING & DEVELOPMENT DATA
+# ===================================
+
+# Test data and fixtures
+test_data/
+fixtures/private/
+sample_reports/
+test_sites/
+
+# Performance testing
+benchmark_results/
+performance_logs/
+
+# ===================================
+# DEPLOYMENT & CI/CD
+# ===================================
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Deployment configs
+deploy/
+.deploy/
+k8s/secrets/
+
+# CI/CD secrets
+.github/workflows/secrets/ 
