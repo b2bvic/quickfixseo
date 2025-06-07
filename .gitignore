@@ -26,6 +26,7 @@ vault_config.json
 personal_config.py
 .vault_path
 dev_config.py
+dev_config.py.example
 
 # Generated reports (keep local for testing)
 reports/
@@ -186,4 +187,200 @@ deploy/
 k8s/secrets/
 
 # CI/CD secrets
-.github/workflows/secrets/ 
+.github/workflows/secrets/
+
+# ===================================
+# PRIVATE/SENSITIVE FILES
+# ===================================
+
+# Obsidian integration (personal vault paths)
+obsidian_seo_*.py
+configure_vault.py
+setup_obsidian_seo.py
+
+# Client audit tools (proprietary business logic)
+intelligent_crawler*.py
+advanced_seo_audit.py
+*client_audit*
+run_client_audits.sh
+single_client_audit.sh
+smart_audit*.sh
+run_seo_audit.sh
+
+# Setup and testing scripts (internal tools)
+setup_*.py
+test_*.py
+*_connection.py
+
+# Strategy and internal documentation
+MONETIZATION_STRATEGY.md
+SUBSCRIPTION_STRATEGY.md
+REBRANDING_SUMMARY.md
+CLIENT_AUDIT_SETUP.md
+COMPARISON_LOCAL_vs_CLOUD.md
+ADVANCED_SEO_FEATURES.md
+OBSIDIAN_SEO_README.md
+README_SMART_AUDIT.md
+PROJECT_STRUCTURE.md
+screamingfrog_workflows.md
+
+# Personal reference files
+{TA}*.md
+*Kimball*.md
+*Technical*SEO*.csv
+
+# License management (proprietary)
+license_manager.py
+subscription_example.py
+
+# ===================================
+# STANDARD IGNORES
+# ===================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ===================================
+# OS
+# ===================================
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Next.js
+.next/
+out/
+
+# Nuxt.js
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw? 
